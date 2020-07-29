@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyAppPersonal.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ginda">#76222f</Color>
+            <Color x:Key="GrisObscuro">#4a465b</Color>
+            <Color x:Key="verdeObscuro">#161f26</Color>
+            <Color x:Key="Azul">#0A0FAE</Color>
+            <Color x:Key="Amarillo">#E8FF00</Color>
+            <Color x:Key="Anaranjado">#FFA500</Color>
+            <Color x:Key="GrisClaro">#ececec</Color>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Blue"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Azul}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="20"/>
+            </Style>
+            <Style x:Key="tituloPrincipal" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Anaranjado}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Padding" Value="0,0,20,0"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="lblPalabra" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

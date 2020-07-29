@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyAppPersonal.View.MemorizarShowDefPage"
+             Title="Memorizar">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="addFile.png" Priority="0" Order="Primary" Clicked="btnAgregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+        <Frame Margin="20,40,20,20" BackgroundColor="White" Padding="20" CornerRadius="20">
+        <StackLayout>
+            <Label Text="{Binding Memorizar.Palabra}" 
+                   FontSize="35" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+                    <Switch Toggled="Switch_Toggled" IsToggled="{Binding SwitchVisible}"/>
+                    <Frame BackgroundColor="{StaticResource ginda}" Margin="0,0,0,20">
+                            <Label x:Name="lblDefinicion" 
+                           Text="{Binding Memorizar.Definicion}" 
+                           IsVisible="False"
+                           FontSize="35" 
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                        </Frame>
+                        <Label Text="{Binding Memorizar.Ejemplo}"
+                         FontSize="18"
+                         TextColor="Green"/>
+                        <Button x:Name="btnNext" Text="Next" Command="{Binding commandNext}" IsVisible="{Binding VisibleBtnNex}"/>
+                    <Button x:Name="btnBack" 
+                            Text="Back" 
+                            Command="{Binding commandBack}" 
+                            IsVisible="{Binding VisibleBtnBack}"
+                            BackgroundColor="Red"/>
+                    <Label Text="{Binding PieDePagina}"
+                           Margin="0,40,0,0"/>
+        </StackLayout>
+            </Frame>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyAppPersonal.View.LstMemorizarPage"  
+             xmlns:models="clr-namespace:MyAppPersonal.ViewModel"
+             Title="List">
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator
+                                IsRunning="{Binding IsBusy}"
+                                IsVisible="{Binding IsBusy}"
+                                HorizontalOptions="Center"
+                                       WidthRequest="80"
+                                       HeightRequest="80">
+            </ActivityIndicator>
+            <Label Text="No se encontraron palabras registradas." 
+                   Margin="20"
+                   Padding="10"
+                   BackgroundColor="Orange"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="White"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   IsVisible="{Binding MostrarMensajeRow}"/>
+            <ListView x:Name="LstMemorizar" 
+                      ItemsSource="{Binding LstMemorizar}"
+                      ItemSelected="LstMemorizar_ItemSelected"
+                      SeparatorColor="Transparent"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Appearing="ViewCell_Appearing">
+                            <Frame CornerRadius="5"
+                                   Margin="10"
+                                   BackgroundColor="White">
+                                <StackLayout>
+                                    <Label Text="{Binding Palabra}" Style="{StaticResource lblPalabra}"/>
+                                    <Label Text="{Binding Definicion}"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Ejemplo}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                        <!--<TextCell Text="{Binding Palabra}" Detail="{Binding Definicion}"></TextCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

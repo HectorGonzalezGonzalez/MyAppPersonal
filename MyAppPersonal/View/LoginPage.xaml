@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyAppPersonal.View.LoginPage"
+             xmlns:models="clr-namespace:MyAppPersonal.ViewModel"             
+             Title="Iniciar Sesión"
+             BackgroundImageSource="fondoPrincipal.png"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.BindingContext>
+        <models:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Grid Margin="15,20,15,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Text="Mi App Personal" Grid.Row="0" TextColor="White" HorizontalTextAlignment="Center" FontSize="35"/>
+        <Image Source="user_smartphone.png"  Grid.Row="1"/>
+            <Frame Grid.Row="2" Margin="0,20,0,0" BackgroundColor="White" Padding="20" CornerRadius="20" Opacity="0.6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Nombre De Usuario:" Grid.Row="0" TextColor="{StaticResource Azul}"/>
+                <Entry Text="{Binding NombreDeUsuario}" 
+                       Grid.Row="1"                       
+                       />
+                <Label Text="Contraseña:" Grid.Row="2" TextColor="{StaticResource Azul}"/>
+                <Entry Text="{Binding Password}" IsPassword="True" Grid.Row="3"/>
+                    <Button Text="Iniciar Sesión" 
+                        Command="{Binding cmdIniciarSession}" 
+                        Grid.Row="4"/>
+
+                    <ActivityIndicator Grid.Row="5"
+                                IsRunning="{Binding IsBusy}"
+                                IsVisible="{Binding IsBusy}"
+                                HorizontalOptions="Center"
+                                       WidthRequest="80"
+                                       HeightRequest="80">
+                    </ActivityIndicator>
+                </Grid>
+        </Frame>
+        <Grid Grid.Row="3" Margin="0,20">
+            <Button Text="Crear Cuenta" 
+                    Command="{Binding cmdCrearCuenta}" 
+                    Grid.Row="0" 
+                    HorizontalOptions="End" 
+                    TextColor="{StaticResource Anaranjado}" 
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    BackgroundColor="Transparent"/>
+        </Grid>
+    </Grid>
+    </ScrollView>
+</ContentPage>
